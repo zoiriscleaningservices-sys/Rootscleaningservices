@@ -113,7 +113,7 @@ export default async function SeoLandingPage({ params }) {
                     <div className="services-carousel-track" id="serviceCarousel">
 
                      {SERVICES.map((s, idx) => (
-                        <Link href={`/${s.id}-in-${locationId}`} key={s.id} className="card-3d" data-tilt>
+                        <a href={`/${s.id}-in-${locationId}`} key={s.id} className="card-3d" data-tilt>
                             <div className="card-image" style={{backgroundImage: `url('${s.image}')`}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">0{idx + 1} / {s.shortName}</span>
@@ -130,7 +130,7 @@ export default async function SeoLandingPage({ params }) {
                                   </svg>
                                 </span>
                             </div>
-                        </Link>
+                        </a>
                      ))}
 
 </div>

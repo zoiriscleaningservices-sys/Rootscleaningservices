@@ -50,7 +50,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/carpet-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/carpet-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2">
@@ -73,7 +73,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/house-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/house-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
@@ -96,7 +96,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/commercial-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/commercial-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2">
@@ -119,7 +119,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
@@ -142,7 +142,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2">
@@ -165,7 +165,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
@@ -188,7 +188,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/deep-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/deep-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2">
@@ -211,7 +211,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
@@ -234,7 +234,7 @@ export default function Services() {
                     
                     <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
                         <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
-                        <Link href="/move-out-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                        <a href="/move-out-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</a>
                     </div>
                 </div>
                 <div className="split-image reveal delay-2">

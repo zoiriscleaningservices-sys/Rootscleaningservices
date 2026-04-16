@@ -32,12 +32,12 @@ export default function Footer() {
                 <div className="footer-col-links">
                     <h4>Premium Services</h4>
                     <ul className="footer-links-list">
-                        <li><Link href="/carpet-cleaning-in-richmond-va">Advanced Carpet Care</Link></li>
-                        <li><Link href="/house-cleaning-in-richmond-va">Delicate Upholstery</Link></li>
-                        <li><Link href="/commercial-cleaning-in-richmond-va">Commercial Lobbies</Link></li>
-                        <li><Link href="/deep-cleaning-in-richmond-va">Deep Home Sanitation</Link></li>
-                        <li><Link href="/move-out-cleaning-in-richmond-va">Move-In / Move-Out</Link></li>
-                        <li><Link href="/cleaning-services-in-richmond-va">Specialized Cleaning</Link></li>
+                        <li><a href="/carpet-cleaning-in-richmond-va">Advanced Carpet Care</a></li>
+                        <li><a href="/house-cleaning-in-richmond-va">Delicate Upholstery</a></li>
+                        <li><a href="/commercial-cleaning-in-richmond-va">Commercial Lobbies</a></li>
+                        <li><a href="/deep-cleaning-in-richmond-va">Deep Home Sanitation</a></li>
+                        <li><a href="/move-out-cleaning-in-richmond-va">Move-In / Move-Out</a></li>
+                        <li><a href="/cleaning-services-in-richmond-va">Specialized Cleaning</a></li>
                     </ul>
                 </div>
 
@@ -45,12 +45,12 @@ export default function Footer() {
                 <div className="footer-col-links">
                     <h4>Coverage Areas</h4>
                     <ul className="footer-links-list">
-                        <li><Link href="/richmond-va">Richmond</Link></li>
-                        <li><Link href="/midlothian-va">Midlothian</Link></li>
-                        <li><Link href="/chesterfield-va">Chesterfield</Link></li>
-                        <li><Link href="/henrico-va">Henrico</Link></li>
-                        <li><Link href="/mechanicsville-va">Mechanicsville</Link></li>
-                        <li><Link href="/short-pump-va">Short Pump</Link></li>
+                        <li><a href="/richmond-va">Richmond</a></li>
+                        <li><a href="/midlothian-va">Midlothian</a></li>
+                        <li><a href="/chesterfield-va">Chesterfield</a></li>
+                        <li><a href="/henrico-va">Henrico</a></li>
+                        <li><a href="/mechanicsville-va">Mechanicsville</a></li>
+                        <li><a href="/short-pump-va">Short Pump</a></li>
                     </ul>
                 </div>
 
