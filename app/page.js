@@ -492,7 +492,7 @@ export default function Home() {
         <section className="map-section relative">
             <div className="map-overlay"></div>
             
-            <iframe className="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101235.03155700816!2d-77.53856277977461!3d37.5246604675402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b111095799c9ed%3A0xbfd83e6de2423cc5!2sRichmond%2C%20VA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe className="gmap" src="https://maps.google.com/maps?q=Richmond%2C%20VA&t=&z=13&ie=UTF8&iwloc=&output=embed" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             
             <div className="container absolute inset-0 d-flex flex-end align-center z-10" style={{"pointerEvents": "none"}}>
                 <div className="map-contact-card reveal delay-2" style={{"pointerEvents": "auto"}}>
