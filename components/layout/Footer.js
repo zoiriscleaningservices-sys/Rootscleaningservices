@@ -32,12 +32,12 @@ export default function Footer() {
                 <div className="footer-col-links">
                     <h4>Premium Services</h4>
                     <ul className="footer-links-list">
-                        <li><a href="/services#carpet">Advanced Carpet Care</a></li>
-                        <li><a href="/services#upholstery">Delicate Upholstery</a></li>
-                        <li><a href="/services#commercial">Commercial Lobbies</a></li>
-                        <li><a href="/services#tile">Tile & Grout Restoration</a></li>
-                        <li><a href="/services#pets">Pet Odor Elimination</a></li>
-                        <li><a href="/services#deep-clean">Deep Home Sanitation</a></li>
+                        <li><Link href="/carpet-cleaning-in-richmond-va">Advanced Carpet Care</Link></li>
+                        <li><Link href="/house-cleaning-in-richmond-va">Delicate Upholstery</Link></li>
+                        <li><Link href="/commercial-cleaning-in-richmond-va">Commercial Lobbies</Link></li>
+                        <li><Link href="/deep-cleaning-in-richmond-va">Deep Home Sanitation</Link></li>
+                        <li><Link href="/move-out-cleaning-in-richmond-va">Move-In / Move-Out</Link></li>
+                        <li><Link href="/cleaning-services-in-richmond-va">Specialized Cleaning</Link></li>
                     </ul>
                 </div>
 
@@ -45,12 +45,12 @@ export default function Footer() {
                 <div className="footer-col-links">
                     <h4>Coverage Areas</h4>
                     <ul className="footer-links-list">
-                        <li><a href="#">Richmond</a></li>
-                        <li><a href="#">Midlothian</a></li>
-                        <li><a href="#">Chesterfield</a></li>
-                        <li><a href="#">Henrico</a></li>
-                        <li><a href="#">Mechanicsville</a></li>
-                        <li><a href="#">Short Pump</a></li>
+                        <li><Link href="/richmond-va">Richmond</Link></li>
+                        <li><Link href="/midlothian-va">Midlothian</Link></li>
+                        <li><Link href="/chesterfield-va">Chesterfield</Link></li>
+                        <li><Link href="/henrico-va">Henrico</Link></li>
+                        <li><Link href="/mechanicsville-va">Mechanicsville</Link></li>
+                        <li><Link href="/short-pump-va">Short Pump</Link></li>
                     </ul>
                 </div>
 

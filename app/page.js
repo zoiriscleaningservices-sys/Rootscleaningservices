@@ -23,8 +23,8 @@ export default function Home() {
                     We extract years of embedded dirt, returning your luxurious carpets and delicate upholstery to their original showroom glory. Experience true pristine perfection.
                 </p>
                 <div className="hero-buttons" style={{"justifyContent": "flex-start", "marginTop": "2rem"}}>
-                    <a href="contact.html" className="btn btn-accent btn-large glow-effect">Get Your Free Quote</a>
-                    <a href="services.html" className="btn btn-outline btn-large">View Portfolio</a>
+                    <a href="/contact" className="btn btn-accent btn-large glow-effect">Get Your Free Quote</a>
+                    <a href="/services" className="btn btn-outline btn-large">View Portfolio</a>
                 </div>
             </div>
             
@@ -71,7 +71,7 @@ export default function Home() {
                     <div className="carousel-viewport">
                     <div className="services-carousel-track" id="serviceCarousel">
                         
-                        <a href="services.html#carpet" className="card-3d" data-tilt>
+                        <a href="/carpet-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_carpet.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">01 / Residential</span>
@@ -91,7 +91,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#upholstery" className="card-3d" data-tilt>
+                        <a href="/house-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_upholstery.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">02 / Furniture</span>
@@ -111,7 +111,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#commercial" className="card-3d" data-tilt>
+                        <a href="/commercial-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_commercial.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">03 / Corporate</span>
@@ -131,7 +131,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#tile" className="card-3d" data-tilt>
+                        <a href="/cleaning-services-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_tile.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">04 / Hard Floors</span>
@@ -151,7 +151,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#pets" className="card-3d" data-tilt>
+                        <a href="/cleaning-services-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_pet.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">05 / Specialized</span>
@@ -171,7 +171,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#rugs" className="card-3d" data-tilt>
+                        <a href="/carpet-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_rug.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">06 / Premium</span>
@@ -191,7 +191,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#deep-clean" className="card-3d" data-tilt>
+                        <a href="/deep-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_deepclean.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">07 / In-Depth</span>
@@ -211,7 +211,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#kitchen-bath" className="card-3d" data-tilt>
+                        <a href="/deep-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_kitchen.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">08 / Sanitation</span>
@@ -231,7 +231,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#move-out" className="card-3d" data-tilt>
+                        <a href="/move-out-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_moveout.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">09 / Relocation</span>
@@ -251,7 +251,7 @@ export default function Home() {
                         </a>
 
                         
-                        <a href="services.html#standard" className="card-3d" data-tilt>
+                        <a href="/house-cleaning-in-richmond-va" className="card-3d" data-tilt>
                             <div className="card-image" style={{"backgroundImage": "url('/images/service_maid.png')"}}></div>
                             <div className="card-content-glass">
                                 <span className="service-tag">10 / Recurring</span>
@@ -504,7 +504,7 @@ export default function Home() {
                         <li><strong>📞 Phone:</strong> (804) 873-7546</li>
                         <li><strong>✉️ Email:</strong> info@rootscleaningservices.com</li>
                     </ul>
-                    <a href="contact.html" className="btn btn-primary mt-4 w-full text-center">Contact Dispatch</a>
+                    <a href="/contact" className="btn btn-primary mt-4 w-full text-center">Contact Dispatch</a>
                 </div>
             </div>
         </section>

@@ -47,7 +47,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Odor Neutralization</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Fast-Drying Solutions</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/carpet-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2">
                     <img src="/images/service_carpet.png" alt="Carpet Cleaning" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -66,7 +70,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Revitalizes Color Integrity</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Extends Furniture Lifespan</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/house-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
                     <img src="/images/service_upholstery.png" alt="Upholstery Care" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -85,7 +93,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Flexible After-Hours Service</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Minimal Disruption</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/commercial-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2">
                     <img src="/images/service_commercial.png" alt="Commercial Cleaning" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -104,7 +116,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>High-Pressure Sterilization</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Optional Clear Sealer</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
                     <img src="/images/service_tile.png" alt="Tile and Grout Cleaning" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -123,7 +139,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Enzymatic Breakdown technology</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Safe for Pets and Children</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2">
                     <img src="/images/service_pet.png" alt="Pet Odor Removal" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -142,7 +162,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Fringe Detail Cleaning</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Preserves Antique Value</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
                     <img src="/images/service_rug.png" alt="Oriental Rug Washing" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -161,7 +185,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Comprehensive Detail Scrub</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Reset Your Home's Baseline</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/deep-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2">
                     <img src="/images/service_deepclean.png" alt="Deep Home Cleaning" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -180,7 +208,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Soap Scum Elimination</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Fixture Polishing</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/cleaning-services-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2" style={{"direction": "ltr"}}>
                     <img src="/images/service_kitchen.png" alt="Kitchen Cleaning" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
@@ -199,7 +231,11 @@ export default function Services() {
                         <li><div className="icon-circle">✓</div><div><strong>Appliance Interiors</strong></div></li>
                         <li><div className="icon-circle">✓</div><div><strong>Maximize Security Deposit Returns</strong></div></li>
                     </ul>
-                    <a href="/contact" className="btn btn-accent mt-4" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                    
+                    <div className="d-flex mt-4" style={{"flexWrap": "wrap", "gap": "1rem"}}>
+                        <a href="/contact" className="btn btn-accent" style={{"padding": "0.8rem 2rem"}}>Get a Quote</a>
+                        <Link href="/move-out-cleaning-in-richmond-va" className="btn btn-outline" style={{"padding": "0.8rem 2rem"}}>SEO Details</Link>
+                    </div>
                 </div>
                 <div className="split-image reveal delay-2">
                     <img src="/images/service_moveout.png" alt="Move Out Cleaning" className="shadow-xl" style={{"borderRadius": "var(--radius-md)"}} />
