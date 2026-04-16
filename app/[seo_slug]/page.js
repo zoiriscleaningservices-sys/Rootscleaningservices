@@ -1,8 +1,6 @@
 
-import { generateAllSlugs, getSeoMetadataBySlug } from '../../data/seoDb';
-import MapContactCard from '../../components/sections/MapContactCard';
+import { generateAllSlugs, getSeoMetadataBySlug, SERVICES } from '../../data/seoDb';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export function generateStaticParams() {
   const slugs = generateAllSlugs();
@@ -14,34 +12,45 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   const { seo_slug } = resolvedParams;
-  const { locationName, serviceName } = getSeoMetadataBySlug(seo_slug);
+  const data = getSeoMetadataBySlug(seo_slug);
   
+  if (data.isLocationHub) {
+    return {
+      title: `Top Cleaning Services in ${data.locationName}`,
+      description: `Discover the best premium cleaning services in ${data.locationName}. We provide 5-star residential and commercial solutions.`
+    };
+  }
+
   return {
-    title: `${serviceName} in ${locationName} | Premium Services`,
-    description: `Looking for ${serviceName.toLowerCase()} in ${locationName}? We provide top-tier, detail-obsessed cleaning solutions for residential and commercial estates.`,
+    title: `${data.service.name} in ${data.locationName} | Roots Cleaning`,
+    description: data.service.heroDescription,
   };
 }
 
 export default async function SeoLandingPage({ params }) {
   const resolvedParams = await params;
   const { seo_slug } = resolvedParams;
-  const { locationName, serviceName } = getSeoMetadataBySlug(seo_slug);
+  const data = getSeoMetadataBySlug(seo_slug);
+
+  const heroTitle = data.isLocationHub ? data.locationName : data.service.tagline;
+  const heroDescription = data.isLocationHub ? `Delivering unmatched cleaning standards across ${data.locationName}. From residential refreshing to deep commercial scrubbing, choose your service below.` : data.service.heroDescription;
+  const typewriterData = data.isLocationHub ? '["Trusted Cleaners.", "Top-Rated Service.", "Local Experts."]' : data.service.typewriter;
+  const marqueeText = data.isLocationHub ? 'PREMIUM SERVICES' : data.service.marquee;
+  const locationName = data.locationName;
+  
+  // Extract location id for creating local silo links
+  const locationId = data.isLocationHub ? data.seo_slug : data.seo_slug.split('-in-')[1];
 
   return (
     <>
-
-
-    
-    <main>
+<main>
         <section className="hero-modern">
             <div className="hero-bg-image"></div>
             <div className="hero-gradient-mask"></div>
             <div className="container hero-content text-left reveal">
                 <div className="hero-badge">Est. 2025 • Top-Rated</div>
-                <h1 className="hero-headline">Deep Cleaning.<br /><span className="typewriter text-accent"></span><span className="cursor text-accent">|</span></h1>
-                <p className="text-lead text-white" style={{"marginLeft": "0", "maxWidth": "500px"}}>
-                    We extract years of embedded dirt, returning your luxurious carpets and delicate upholstery to their original showroom glory. Experience true pristine perfection.
-                </p>
+                <h1 className="hero-headline">{heroTitle}.<br /><span className="typewriter text-accent" data-phrases={typewriterData}></span><span className="cursor text-accent">|</span></h1>
+                <p className="text-lead text-white" style={{"marginLeft": "0", "maxWidth": "500px"}}>{heroDescription}</p>
                 <div className="hero-buttons" style={{"justifyContent": "flex-start", "marginTop": "2rem"}}>
                     <a href="contact.html" className="btn btn-accent btn-large glow-effect">Get Your Free Quote</a>
                     <a href="services.html" className="btn btn-outline btn-large">View Portfolio</a>
@@ -51,25 +60,37 @@ export default async function SeoLandingPage({ params }) {
             
             <div className="marquee-container">
                 <div className="marquee-track">
-                    <span>ROOTS CLEANING SERVICES</span> 
+                    <span>{marqueeText}</span> 
                     <span className="dot">•</span>
-                    <span>PREMIUM CARPET CARE</span>
-                    <span className="dot">•</span>
-                    <span>ECO-FRIENDLY</span>
-                    <span className="dot">•</span>
-                    <span>UPHOLSTERY EXPERTS</span>
-                    <span className="dot">•</span>
-                    <span>COMMERCIAL & RESIDENTIAL</span>
-                    <span className="dot">•</span>
-                    <span>ROOTS CLEANING SERVICES</span> 
-                    <span className="dot">•</span>
-                    <span>PREMIUM CARPET CARE</span>
+                    <span>{locationName.toUpperCase()}</span>
                     <span className="dot">•</span>
                     <span>ECO-FRIENDLY</span>
                     <span className="dot">•</span>
-                    <span>UPHOLSTERY EXPERTS</span>
+                    <span>5-STAR EXPERTS</span>
                     <span className="dot">•</span>
-                    <span>COMMERCIAL & RESIDENTIAL</span>
+                    <span>{marqueeText}</span> 
+                    <span className="dot">•</span>
+                    <span>{locationName.toUpperCase()}</span>
+                    <span className="dot">•</span>
+                    <span>ECO-FRIENDLY</span>
+                    <span className="dot">•</span>
+                    <span>5-STAR EXPERTS</span>
+                    <span className="dot">•</span>
+                    <span>{marqueeText}</span> 
+                    <span className="dot">•</span>
+                    <span>{locationName.toUpperCase()}</span>
+                    <span className="dot">•</span>
+                    <span>ECO-FRIENDLY</span>
+                    <span className="dot">•</span>
+                    <span>5-STAR EXPERTS</span>
+                    <span className="dot">•</span>
+                    <span>{marqueeText}</span> 
+                    <span className="dot">•</span>
+                    <span>{locationName.toUpperCase()}</span>
+                    <span className="dot">•</span>
+                    <span>ECO-FRIENDLY</span>
+                    <span className="dot">•</span>
+                    <span>5-STAR EXPERTS</span>
                     <span className="dot">•</span>
                 </div>
             </div>
@@ -90,215 +111,35 @@ export default async function SeoLandingPage({ params }) {
                     <button className="carousel-btn next carousel-nav-absolute right-nav hidden-mobile" aria-label="Next">&rarr;</button>
                     <div className="carousel-viewport">
                     <div className="services-carousel-track" id="serviceCarousel">
-                        
-                        <a href="services.html#carpet" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_carpet.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">01 / Residential</span>
-                                <h3>Deep Carpet Restoration</h3>
-                                <p>Eradicate stains and odors down to the padding.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
 
-                        
-                        <a href="services.html#upholstery" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_upholstery.png')"}}></div>
+                     {SERVICES.map((s, idx) => (
+                        <Link href={`/${s.id}-in-${locationId}`} key={s.id} className="card-3d" data-tilt>
+                            <div className="card-image" style={{backgroundImage: `url('${s.image}')`}}></div>
                             <div className="card-content-glass">
-                                <span className="service-tag">02 / Furniture</span>
-                                <h3>Delicate Upholstery</h3>
-                                <p>Revitalize sofas and vintage fabrics with zero shrinkage.</p>
+                                <span className="service-tag">0{idx + 1} / {s.shortName}</span>
+                                <h3>{s.name}</h3>
+                                <p>{s.tagline}</p>
                                 <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
+                                  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                                  </svg>
+                                  <span className="text">View Details</span>
+                                  <span className="circle"></span>
+                                  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                                  </svg>
+                                </span>
                             </div>
-                        </a>
+                        </Link>
+                     ))}
 
-                        
-                        <a href="services.html#commercial" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_commercial.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">03 / Corporate</span>
-                                <h3>Commercial & Retail</h3>
-                                <p>After-hours deep cleaning tailored for massive footprints.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#tile" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_tile.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">04 / Hard Floors</span>
-                                <h3>Tile & Grout Cleaning</h3>
-                                <p>High-pressure steam extraction for spotless, sanitized tiles.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#pets" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_pet.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">05 / Specialized</span>
-                                <h3>Pet Odor Removal</h3>
-                                <p>Enzyme-based treatments that eliminate stubborn pet soils.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#rugs" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_rug.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">06 / Premium</span>
-                                <h3>Area & Oriental Rugs</h3>
-                                <p>Safe, pH-balanced washing for silk and wool varieties.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#deep-clean" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_deepclean.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">07 / In-Depth</span>
-                                <h3>Deep Home Cleaning</h3>
-                                <p>Comprehensive top-to-bottom scrub for absolute hygiene.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#kitchen-bath" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_kitchen.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">08 / Sanitation</span>
-                                <h3>Kitchen & Bath Care</h3>
-                                <p>Disinfecting grout, countertops, appliances, and fixtures.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#move-out" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_moveout.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">09 / Relocation</span>
-                                <h3>Move-In & Move-Out</h3>
-                                <p>Prepare an empty property for flawless inspections or fresh starts.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-
-                        
-                        <a href="services.html#standard" className="card-3d" data-tilt>
-                            <div className="card-image" style={{"backgroundImage": "url('/images/service_maid.png')"}}></div>
-                            <div className="card-content-glass">
-                                <span className="service-tag">10 / Recurring</span>
-                                <h3>Standard Maid Service</h3>
-                                <p>Weekly or bi-weekly maintenance returning your space to baseline.</p>
-                                <span className="animated-button explore-text-btn">
-  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-  <span className="text">Learn More</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-  </svg>
-</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        
-        <section className="section section-light" style={{"position": "relative", "overflow": "hidden"}}>
-            
-            <div className="bg-shape"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section className="section section-light" style={{"position": "relative", "overflow": "hidden"}}>
+<div className="bg-shape"></div>
             
             <div className="container relative z-10">
                 <div className="split-layout">
@@ -517,10 +358,10 @@ export default async function SeoLandingPage({ params }) {
             <div className="container absolute inset-0 d-flex flex-end align-center z-10" style={{"pointerEvents": "none"}}>
                 <div className="map-contact-card reveal delay-2" style={{"pointerEvents": "auto"}}>
                     <img src="/images/logo.png" alt="Roots Cleaning Logo" style={{"width": "90px", "height": "auto", "marginBottom": "1rem", "filter": "drop-shadow(0 2px 4px rgba(0,0,0,0.15))"}} />
-                    <h3>{locationName}</h3>
+                    <h3>{locationName} Cleaners</h3>
                     <p className="text-sm mb-4">We dispatch our highly trained crews from our central hub directly to your door.</p>
                     <ul className="contact-grid">
-                        <li><strong>📍 Address:</strong> {locationName}</li>
+                        <li><strong>📍 Address:</strong> Richmond, VA</li>
                         <li><strong>📞 Phone:</strong> (804) 873-7546</li>
                         <li><strong>✉️ Email:</strong> info@rootscleaningservices.com</li>
                     </ul>

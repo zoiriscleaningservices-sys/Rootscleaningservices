@@ -10,25 +10,93 @@ export const LOCATIONS = [
 ];
 
 export const SERVICES = [
-  { id: 'cleaning-services', name: 'Cleaning Services' },
-  { id: 'house-cleaning', name: 'House Cleaning' },
-  { id: 'deep-cleaning', name: 'Deep Cleaning' },
-  { id: 'move-out-cleaning', name: 'Move Out Cleaning' },
-  { id: 'carpet-cleaning', name: 'Carpet Cleaning' },
-  { id: 'commercial-cleaning', name: 'Commercial Cleaning' }
+  { 
+    id: 'cleaning-services', 
+    name: 'Cleaning Services',
+    shortName: 'Cleaning Group',
+    tagline: 'Standard Cleaning.',
+    typewriter: '["Total Home Care.", "Unmatched Freshness.", "Spotless Perfection."]',
+    heroDescription: 'Experience comprehensive cleaning services designed for your lifestyle. We handle the dirty work so you can relax in a spotless environment.',
+    marquee: 'PREMIUM CLEANING SERVICE',
+    image: '/images/service_carpet.png'
+  },
+  { 
+    id: 'house-cleaning', 
+    name: 'House Cleaning',
+    shortName: 'Residential',
+    tagline: 'Home Cleaning.',
+    typewriter: '["Dust-Free Living.", "Sanitized Surfaces.", "Sparkling Floors."]',
+    heroDescription: 'Our dedicated house cleaning transforms your living space into a sanctuary. Detailed, reliable, and completely customized to your home layout.',
+    marquee: 'EXPERT HOUSE CLEANING',
+    image: '/images/service_maid.png'
+  },
+  { 
+    id: 'deep-cleaning', 
+    name: 'Deep Cleaning',
+    shortName: 'Deep Clean',
+    tagline: 'Intensive Scrub.',
+    typewriter: '["Baseboards Scrubbed.", "Grime Eradicated.", "Total Reset."]',
+    heroDescription: 'Go beyond the surface. We extract years of embedded dirt, grease, and dust from the most hard-to-reach areas for absolute hygiene.',
+    marquee: 'ULTIMATE DEEP CLEANING',
+    image: '/images/service_deepclean.png'
+  },
+  { 
+    id: 'move-out-cleaning', 
+    name: 'Move-Out Cleaning',
+    shortName: 'Move Out',
+    tagline: 'Seamless Transitions.',
+    typewriter: '["Deposit Recovery.", "Empty Home Scrub.", "Flawless Inspections."]',
+    heroDescription: 'Ensure a smooth transition. We meticulously prepare empty properties to satisfy strict landlord and buyer inspections.',
+    marquee: 'MOVE IN / MOVE OUT',
+    image: '/images/service_moveout.png'
+  },
+  { 
+    id: 'carpet-cleaning', 
+    name: 'Carpet Cleaning',
+    shortName: 'Carpets',
+    tagline: 'Deep Extraction.',
+    typewriter: '["Stain Removal.", "Odor Elimination.", "Rapid Drying."]',
+    heroDescription: 'Revive your plush carpets. Our high-heat extraction methodology removes allergens and dirt down to the foundational padding.',
+    marquee: 'ADVANCED CARPET CARE',
+    image: '/images/service_carpet.png'
+  },
+  { 
+    id: 'commercial-cleaning', 
+    name: 'Commercial Cleaning',
+    shortName: 'Corporate',
+    tagline: 'Business Maintenance.',
+    typewriter: '["After Hours Care.", "Retail Ready.", "Office Sanitization."]',
+    heroDescription: 'Impress your clients and protect your workforce. We offer tailored, high-capacity janitorial services for corporate and retail footprints.',
+    marquee: 'COMMERCIAL SANITIZATION',
+    image: '/images/service_commercial.png'
+  }
 ];
 
 export function generateAllSlugs() {
   const slugs = [];
+  
+  // 1. Generate Location Hub Slugs
+  LOCATIONS.forEach(location => {
+    slugs.push({
+      seo_slug: location.id,
+      isLocationHub: true,
+      locationName: location.name,
+      locationId: location.id
+    });
+  });
+
+  // 2. Generate Service Landing Slugs
   LOCATIONS.forEach(location => {
     SERVICES.forEach(service => {
       slugs.push({
         seo_slug: `${service.id}-in-${location.id}`,
+        isLocationHub: false,
         locationName: location.name,
-        serviceName: service.name
+        service: service
       });
     });
   });
+  
   return slugs;
 }
 
@@ -37,12 +105,11 @@ export function getSeoMetadataBySlug(slug) {
   const match = allParams.find(p => p.seo_slug === slug);
   if (match) return match;
   
-  // Fallback defaults if requested slug doesn't perfectly match exactly (or just generate from strings)
-  const parts = slug.split('-in-');
-  if (parts.length === 2) {
-    const serviceName = parts[0].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    const locationName = parts[1].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    return { seo_slug: slug, locationName, serviceName };
-  }
-  return { seo_slug: slug, locationName: 'Richmond, VA', serviceName: 'Cleaning Services' };
+  // Fallbacks
+  return { 
+    seo_slug: slug, 
+    isLocationHub: false,
+    locationName: 'Richmond, VA', 
+    service: SERVICES[0]
+  };
 }
