@@ -24,8 +24,9 @@ export default function RootLayout({ children }) {
     <html lang="en-US">
       <body className="modern-theme">
         <Navbar />
-        <main>{children}</main>
+        {children}
         <Footer />
+        <Script src="/js/main.js" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
