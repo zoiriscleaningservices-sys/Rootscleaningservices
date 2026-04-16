@@ -23,7 +23,7 @@ export function generateAllSlugs() {
   LOCATIONS.forEach(location => {
     SERVICES.forEach(service => {
       slugs.push({
-        seo_slug: \`\${service.id}-in-\${location.id}\`,
+        seo_slug: `${service.id}-in-${location.id}`,
         locationName: location.name,
         serviceName: service.name
       });

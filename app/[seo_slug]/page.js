@@ -15,8 +15,8 @@ export async function generateMetadata({ params }) {
   const { locationName, serviceName } = getSeoMetadataBySlug(seo_slug);
   
   return {
-    title: \`\${serviceName} in \${locationName} | Premium Services\`,
-    description: \`Looking for \${serviceName.toLowerCase()} in \${locationName}? We provide top-tier, detail-obsessed cleaning solutions for residential and commercial estates.\`,
+    title: `${serviceName} in ${locationName} | Premium Services`,
+    description: `Looking for ${serviceName.toLowerCase()} in ${locationName}? We provide top-tier, detail-obsessed cleaning solutions for residential and commercial estates.`,
   };
 }
 
@@ -53,7 +53,7 @@ export default function SeoLandingPage({ params }) {
           
           <div className="hero-visual reveal delay-1">
             <div className="hero-image-wrapper">
-              <img src="/images/hero-clean.jpg" alt={\`\${serviceName} in \${locationName}\`} className="hero-image" />
+              <img src="/images/hero-clean.jpg" alt={`${serviceName} in ${locationName}`} className="hero-image" />
             </div>
             <div className="experience-badge bounce">
               <strong>15+</strong>
@@ -112,7 +112,7 @@ export default function SeoLandingPage({ params }) {
         </div>
       </section>
 
-      <MapContactCard locationName={\`\${locationName} Dispatch\`} locationAddress={locationName} />
+      <MapContactCard locationName={`${locationName} Dispatch`} locationAddress={locationName} />
     </>
   );
 }
