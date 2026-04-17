@@ -5,6 +5,9 @@ import '@/app/globals.css';
 export const metadata = {
   title: 'Residential and Commercial Cleaning Service in Richmond, VA | Roots Cleaning Solutions',
   description: 'We provide home cleaning services, commercial and deep cleaning services in Richmond, VA and surrounding areas.',
+  icons: {
+    icon: '/images/logo.png',
+  },
   openGraph: {
     locale: 'en_US',
     type: 'website',
