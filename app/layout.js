@@ -1,7 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import '@/app/globals.css';
-import Script from 'next/script';
 
 export const metadata = {
   title: 'Residential and Commercial Cleaning Service in Richmond, VA | Roots Cleaning Solutions',
@@ -26,16 +25,17 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Footer />
-        <Script src="/js/main.js" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+        {/* Standard HTML Script Tags for 100% native execution (bypassing SPA hydration bugs) */}
+        <script src="/js/main.js" defer></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-RMHXC2D1ZX');
-          `}
-        </Script>
-        <Script src="https://widgets.leadconnectorhq.com/loader.js" strategy="lazyOnload" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="694a111df258cf84ec1599ad" />
+          `
+        }}></script>
+        <script src="https://widgets.leadconnectorhq.com/loader.js" defer data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="694a111df258cf84ec1599ad"></script>
       </body>
     </html>
   );
