@@ -20,6 +20,7 @@ def patch_file(filepath):
     # CSS Background Images inside CSS files or <style> blocks
     content = re.sub(r"url\('/(?!Rootscleaningservices|/)([^']*)'\)", rf"url('{repo_name}/\1')", content)
     content = re.sub(r'url\("/(?!Rootscleaningservices|/)([^"]*)"\)', rf'url("{repo_name}/\1")', content)
+    content = re.sub(r"url\((?!['\"])/(?!Rootscleaningservices|/)([^)]+)\)", rf"url({repo_name}/\1)", content)
 
     # Next.js React HTML Entity Escaped Strings (e.g. style={{backgroundImage: "url('/...')"}} => style="background-image:url(&#x27;/...&#x27;)")
     content = re.sub(r"url\(&#x27;/(?!Rootscleaningservices|/)([^;]*?)&#x27;\)", rf"url(&#x27;{repo_name}/\1&#x27;)", content)
