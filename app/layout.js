@@ -13,7 +13,7 @@ export const metadata = {
     type: 'website',
     title: 'Roots Cleaning Solutions',
     description: 'We provide home cleaning services, commercial and deep cleaning services in Richmond, VA and surrounding areas.',
-    url: 'https://rootscleaningservices.com/',
+    url: 'https://www.rootscleaningservices.com/',
     siteName: 'Roots Cleaning Solutions',
   },
   twitter: {

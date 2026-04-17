@@ -22,10 +22,10 @@ schema_block = """
       "@type": "City",
       "name": locationName
     },
-    "url": `https://roots-cleaning-services.vercel.app/${seo_slug}`,
+    "url": `https://www.rootscleaningservices.com/${seo_slug}`,
     "telephone": "(804) 873-7546",
     "priceRange": "$$",
-    "image": "https://roots-cleaning-services.vercel.app/images/logo.png"
+    "image": "https://www.rootscleaningservices.com/images/logo.png"
   };
 
   return (
