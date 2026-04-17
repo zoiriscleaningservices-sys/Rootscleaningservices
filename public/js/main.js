@@ -305,4 +305,6 @@ const initApp = () => {
     setTimeout(type, 1000);
   }
 };
+
+// Robust Next.js SPA Hydration check
 if (document.readyState === 'complete' || document.readyState === 'interactive') { setTimeout(initApp, 100); } else { document.addEventListener('DOMContentLoaded', initApp); setTimeout(initApp, 1000); }
