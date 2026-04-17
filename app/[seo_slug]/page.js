@@ -16,14 +16,14 @@ export async function generateMetadata({ params }) {
   
   if (data.isLocationHub) {
     return {
-      title: `Top Cleaning Services in ${data.locationName}`,
-      description: `Discover the best premium cleaning services in ${data.locationName}. We provide 5-star residential and commercial solutions.`
+      title: `⭐ Top Cleaning Services in ${data.locationName} | 5-Star Rated`,
+      description: `✨ Looking for the best cleaning services in ${data.locationName}? Our veteran-certified cleaners remove 99.9% of dirt. Claim your FREE quote from Roots Cleaning today!`
     };
   }
 
   return {
-    title: `${data.service.name} in ${data.locationName} | Roots Cleaning`,
-    description: data.service.heroDescription,
+    title: `⭐ #1 ${data.service.name} in ${data.locationName} | Free Quotes`,
+    description: `✨ Experience premium ${data.service.name.toLowerCase()} in ${data.locationName}. 5-star certified. ${data.service.heroDescription} Get a FREE estimate!`,
   };
 }
 
@@ -44,17 +44,56 @@ export default async function SeoLandingPage({ params }) {
   
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "CleaningService",
-    "name": `${data.isLocationHub ? 'Premium Cleaning Services' : data.service.name} in ${locationName}`,
-    "description": heroDescription,
-    "areaServed": {
-      "@type": "City",
-      "name": locationName
-    },
-    "url": `https://www.rootscleaningservices.com/${seo_slug}`,
-    "telephone": "(804) 873-7546",
-    "priceRange": "$$",
-    "image": "https://www.rootscleaningservices.com/images/logo.png"
+    "@graph": [
+      {
+        "@type": "CleaningService",
+        "name": `${data.isLocationHub ? 'Premium Cleaning Services' : data.service.name} in ${locationName}`,
+        "description": heroDescription,
+        "areaServed": {
+          "@type": "City",
+          "name": locationName
+        },
+        "url": `https://www.rootscleaningservices.com/${seo_slug}`,
+        "telephone": "(804) 873-7546",
+        "priceRange": "$$",
+        "image": "https://www.rootscleaningservices.com/images/logo.png",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128"
+        },
+        "openingHours": "Mo-Su 08:00-18:00"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is included in a standard cleaning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our standard cleaning includes dusting, vacuuming, mopping, and bathroom sanitation to keep your home fresh and spotless."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide your own cleaning supplies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We bring premium, eco-friendly cleaning supplies and equipment to ensure a perfect clean safely."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book a cleaning service?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Booking is easy and only takes 60 seconds! Just give us a call at (804) 873-7546 or click Get Your Free Quote on our site."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
