@@ -41,6 +41,9 @@ jobs:
       - name: Build Next.js Static Export
         run: npm run build
       
+      - name: Purge React Hydration Scripts for Pure HTML Payload
+        run: python3 purge_scripts.py
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
