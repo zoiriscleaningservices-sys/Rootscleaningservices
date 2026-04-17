@@ -8,20 +8,22 @@ def patch_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Next.js sets basePath so _next links are already /Rootscleaningservices/_next/
-    # We only want to patch hardcoded absolute links like /images, /css, /js, or /services
+    # Define exact replacements for the base domain mapping.
     
-    # Target href="/..." but specifically DO NOT patch href="/Rootscleaningservices..." or href="//..."
-    content = re.sub(r'href="/(?!Rootscleaningservices|/)([^"]+)"', rf'href="{repo_name}/\1"', content)
-    content = re.sub(r"href='/(?!Rootscleaningservices|/)([^']+)'", rf"href='{repo_name}/\1'", content)
+    # Standard HTML Attributes (Matches src="/foo" and href="/foo")
+    content = re.sub(r'href="/(?!Rootscleaningservices|/)([^"]*)"', rf'href="{repo_name}/\1"', content)
+    content = re.sub(r"href='/(?!Rootscleaningservices|/)([^']*)'", rf"href='{repo_name}/\1'", content)
     
-    # Target src="/..." (like our manually injected <script src="/js/main.js">)
-    content = re.sub(r'src="/(?!Rootscleaningservices|/)([^"]+)"', rf'src="{repo_name}/\1"', content)
-    content = re.sub(r"src='/(?!Rootscleaningservices|/)([^']+)'", rf"src='{repo_name}/\1'", content)
+    content = re.sub(r'src="/(?!Rootscleaningservices|/)([^"]*)"', rf'src="{repo_name}/\1"', content)
+    content = re.sub(r"src='/(?!Rootscleaningservices|/)([^']*)'", rf"src='{repo_name}/\1'", content)
     
-    # Target css url('/images/...')
-    content = re.sub(r"url\('/(?!Rootscleaningservices|/)([^']+)'\)", rf"url('{repo_name}/\1')", content)
-    content = re.sub(r'url\("/(?!Rootscleaningservices|/)([^"]+)"\)', rf'url("{repo_name}/\1")', content)
+    # CSS Background Images inside CSS files or <style> blocks
+    content = re.sub(r"url\('/(?!Rootscleaningservices|/)([^']*)'\)", rf"url('{repo_name}/\1')", content)
+    content = re.sub(r'url\("/(?!Rootscleaningservices|/)([^"]*)"\)', rf'url("{repo_name}/\1")', content)
+
+    # Next.js React HTML Entity Escaped Strings (e.g. style={{backgroundImage: "url('/...')"}} => style="background-image:url(&#x27;/...&#x27;)")
+    content = re.sub(r"url\(&#x27;/(?!Rootscleaningservices|/)([^;]*?)&#x27;\)", rf"url(&#x27;{repo_name}/\1&#x27;)", content)
+    content = re.sub(r"url\(&quot;/(?!Rootscleaningservices|/)([^;]*?)&quot;\)", rf"url(&quot;{repo_name}/\1&quot;)", content)
 
     # Specific exact root
     content = content.replace('href="/"', f'href="{repo_name}/"')
@@ -35,4 +37,4 @@ for root, _, files in os.walk(base_path):
         if filename.endswith(('.html', '.css', '.js')):
             patch_file(os.path.join(root, filename))
 
-print("✅ Perfect Path Replacements complete!")
+print(f"✅ Successfully Patched GitHub Pages asset paths with: {repo_name}")
