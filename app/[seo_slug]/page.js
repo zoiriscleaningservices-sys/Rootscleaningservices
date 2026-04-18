@@ -60,7 +60,11 @@ export default async function SeoLandingPage({ params }) {
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
-          "reviewCount": "128"
+          "reviewCount": "128",
+          "itemReviewed": {
+            "@type": "CleaningService",
+            "name": `${data.isLocationHub ? 'Premium Cleaning Services' : data.service.name} in ${locationName}`
+          }
         },
         "openingHours": "Mo-Su 08:00-18:00"
       },
